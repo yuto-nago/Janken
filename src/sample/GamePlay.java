@@ -25,17 +25,12 @@ public class GamePlay {
 	 * 最初にファイルからプレイヤーの手を読み込む
 	 */
 	{
-		try{
-
-			BufferedReader br = new BufferedReader(new FileReader("janken.txt"));
+		try (BufferedReader br = new BufferedReader(new FileReader("janken.txt"))) {
 			String s;
 			//数字を全て読み込む
 			while((s = br.readLine()) != null){
 				computer.getList().add(Integer.parseInt(s));
 			}
-
-			br.close();
-
 		}catch(FileNotFoundException e){
 			System.err.println("ファイルを開けない");
 		}catch(IOException e){
