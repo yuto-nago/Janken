@@ -18,23 +18,18 @@ public class GamePlay {
 	//コンピュータークラス
 	private Computer computer = new Computer(1, 2, 3);
 
-	//PrintWriter型変数の宣言
-	private PrintWriter p;
-
 	/**
 	 * 最初にファイルからプレイヤーの手を読み込む
 	 */
 	{
-		try{
+		try(FileReader fr = new FileReader("janken.txt");
+				BufferedReader br = new BufferedReader(fr);){
 
-			BufferedReader br = new BufferedReader(new FileReader("janken.txt"));
 			String s;
 			//数字を全て読み込む
 			while((s = br.readLine()) != null){
 				computer.getList().add(Integer.parseInt(s));
 			}
-
-			br.close();
 
 		}catch(FileNotFoundException e){
 			System.err.println("ファイルを開けない");
@@ -136,13 +131,13 @@ public class GamePlay {
 		System.out.println("コンピューター勝った回数" + cp_win);
 
 		//ファイルにプレイヤーの手を書き出す
-		try{
+		try(FileWriter fw = new FileWriter("janken.txt", true);
+				BufferedWriter bw = new BufferedWriter(fw);
+				PrintWriter p = new PrintWriter(bw);){
 
-			p = new PrintWriter(new BufferedWriter(new FileWriter("janken.txt", true)));
 			for(int i = 0; i < computer.getList().size(); i++){
 				p.println(computer.getList().get(i));
 			}
-			p.close();
 
 		}catch(IOException e){
 			System.err.println("ファイルを作成できない");
