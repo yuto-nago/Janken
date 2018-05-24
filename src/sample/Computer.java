@@ -25,9 +25,6 @@ public class Computer{
 	//配列の要素数
 	private int count;
 
-	//人間の出した手を保存しておく配列
-	//private int[] data = new int[1000];
-
 	//人間の出した手を保存しておくリスト
 	private ArrayList<Integer> list = new ArrayList<Integer>();
 
@@ -92,22 +89,6 @@ public class Computer{
 		this.scissors_cp = scissors_cp;
 	}
 
-	/**
-	 * ゲッターメソッド
-	 * @return int型配列 data
-	 */
-	//public int[] getData() {
-	//	return data;
-	//}
-
-	/**
-	 * セッターメソッド
-	 * @param data
-	 */
-	//public void setData(int[] data) {
-	//	this.data = data;
-	//}
-
 
 	/**
 	 * ゲッターメソッド
@@ -158,16 +139,19 @@ public class Computer{
 			rock_count = 0;
 			paper_count = 0;
 			scissors_count = 0;
+			count = 0;
 			return 3;
 		}else if((paper < rock) && (scissors < rock)){
 			rock_count = 0;
 			paper_count = 0;
 			scissors_count = 0;
+			count = 0;
 			return 2;
 		}else if((paper < scissors) && (rock < scissors)){
 			rock_count = 0;
 			paper_count = 0;
 			scissors_count = 0;
+			count = 0;
 			return 1;
 		}else{
 			random = (int)(Math.random() * 3) + 1;
@@ -176,6 +160,7 @@ public class Computer{
 		rock_count = 0;
 		paper_count = 0;
 		scissors_count = 0;
+		count = 0;
 		return random;
 
 

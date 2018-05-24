@@ -16,7 +16,7 @@ public class GamePlay {
 	private Player player;
 
 	//コンピュータークラス
-	private Computer computer = new Computer(1, 2, 3);;
+	private Computer computer = new Computer(1, 2, 3);
 
 	//PrintWriter型変数の宣言
 	private PrintWriter p;
